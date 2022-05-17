@@ -64,5 +64,3 @@
     }
     echo "<p></p>";
     echo $max;
-
-    echo "<p></p>";
