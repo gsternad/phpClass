@@ -65,3 +65,11 @@
     echo "<p></p>";
     echo $max;
     echo $max;
+    /*
+     * git status
+     * git checkout -b nekaj // doda novi branch
+     * git ad filename.php
+     * git add -A // doda vse spremembe
+     * git commit -m "Message"
+     * git push origin nekaj
+     */
