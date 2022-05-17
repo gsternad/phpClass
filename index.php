@@ -44,10 +44,25 @@
     {
         echo $item . " " . $item_value . "<br>";
     }
-    arsort($associativeArray);
+    // arsort($associativeArray);
     /*
     $arr = array_keys($associativeArray);
     echo $arr[0];
     */
     echo "<p></p>";
     echo key($associativeArray);
+
+    $max = 0;
+    $item = " ";
+    foreach($associativeArray as $item => $value)
+    {
+        if($value > $max)
+        {
+            $max = $value;
+            $name = $item;
+        }
+    }
+    echo "<p></p>";
+    echo $max;
+
+    echo "<p></p>";
