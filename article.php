@@ -38,7 +38,6 @@
         <?php
         $id = isset($_GET['id']) ? $_GET['id'] : FALSE;
         $postData = getPost($id);
-        // if(!is_numeric($id) || !in_array($id, array_keys($posts));
         if(!getPost($id))
         {
             header("Location: page404.php");
