@@ -65,3 +65,10 @@ function getPost($id)
     }
     return $posts[$id];
 }
+
+function getData($name = "Janez",
+                 $surname = "Novak",
+                 $date = "1.1.1970")
+{
+    return $name . " " . $surname . " " . $date;
+}
