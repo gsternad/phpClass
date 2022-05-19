@@ -1,5 +1,4 @@
 <?php
-die("mater");
 $posts = [
   0 => [
     "title" => "What is Lorem Ipsum?",

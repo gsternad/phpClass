@@ -1,4 +1,5 @@
 <?php
+include 'inc/functions.php';
 $posts = [
     0 => [
         "title" => "What is Lorem Ipsum?",
@@ -82,6 +83,7 @@ $posts = [
     <div class="row">
         <div class="col-sm-4">
         <?php
+        $posts = allPosts();
         foreach($posts as $id => $post)
         {
             //col-cm-4

@@ -1,5 +1,6 @@
 <?php
     include "helpers/posts.php";
+    include "inc/functions.php";
 ?>
 
 <!DOCTYPE html>
@@ -36,22 +37,24 @@
         <div class="col-sm-4">
         <?php
         $id = isset($_GET['id']) ? $_GET['id'] : FALSE;
+        $posts = allPosts();
+        $postData = getPost($id);
         // if(!is_numeric($id) || !in_array($id, array_keys($posts));
-        if($id < count($posts))
-        {
-            echo "<h1>" . $posts[$id]["title"] . "</h1>";
-            echo "<p>" . $posts[$id]["content"] . "</p>";
-            if(!empty($posts[$id]["image"]["url"]))
-            {
-                echo "<img src='" . $posts[$id]["image"]["url"] . " alt='" .$posts[$id]["image"]["alt"] . "'/><br>";
-            }
-            echo "<p>" . date("d. m. Y", $posts[$id]["authored on"]) . "</p>";
-            echo "<p>" . $posts[$id]["authored by"] . "</p>";
-        }
-        else
+        if(!getPost($id))
         {
             header("Location: page404.php");
             die();
+        }
+        else
+        {
+            echo "<h1>" . $postData["title"] . "</h1>";
+            echo "<p>" . $postData["content"] . "</p>";
+            if(!empty($postData["image"]["url"]))
+            {
+                echo "<img src='" . $postData["image"]["url"] . " alt='" . $postData["image"]["alt"] . "'/><br>";
+            }
+            echo "<p>" . date("d. m. Y", $postData["authored on"]) . "</p>";
+            echo "<p>" . $postData["authored by"] . "</p>";
         }
         ?>
         </div>
