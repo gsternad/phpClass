@@ -1,6 +1,7 @@
 <?php
     include "helpers/posts.php";
     include "inc/functions.php";
+    $id = isset($_GET['id']) ? $_GET['id'] : FALSE;
 ?>
 
 <!DOCTYPE html>
@@ -36,24 +37,22 @@
     <div class="row">
         <div class="col-sm-4">
         <?php
-        $id = isset($_GET['id']) ? $_GET['id'] : FALSE;
-        $postData = getPost($id);
+        $post = getPost($_GET['id']);
+        /*
         if(!getPost($id))
         {
             header("Location: page404.php");
             die();
         }
-        else
+        */
+        echo "<h1>" . $post["title"] . "</h1>";
+        echo "<p>" . $post["content"] . "</p>";
+        if(!empty($post["image"]["url"]))
         {
-            echo "<h1>" . $postData["title"] . "</h1>";
-            echo "<p>" . $postData["content"] . "</p>";
-            if(!empty($postData["image"]["url"]))
-            {
-                echo "<img src='" . $postData["image"]["url"] . " alt='" . $postData["image"]["alt"] . "'/><br>";
-            }
-            echo "<p>" . date("d. m. Y", $postData["authored on"]) . "</p>";
-            echo "<p>" . $postData["authored by"] . "</p>";
+            echo "<img src='" . $post["image"]["url"] . " alt='" . $post["image"]["alt"] . "'/><br>";
         }
+        echo "<p>" . date("d. m. Y", $post["authored on"]) . "</p>";
+        echo "<p>" . $post["authored by"] . "</p>";
         ?>
         </div>
     </div>

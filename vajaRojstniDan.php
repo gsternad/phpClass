@@ -35,8 +35,13 @@
     <div class="row">
         <div class="col-sm-4">
             <?php
+
+                $a = getDatabaseConnection();
+                var_dump($a);
+                echo "<br>";
                 $data = getData();
                 echo $data;
+
             ?>
         </div>
     </div>
